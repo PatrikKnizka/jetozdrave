@@ -6,7 +6,6 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "prebuild": "npm run test:e2e",
         "lint": "eslint .",
         "preview": "vite preview",
         "deploy": "gh-pages -d dist",
