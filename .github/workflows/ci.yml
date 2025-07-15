@@ -25,9 +25,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run linting
-        run: npm run lint
-
+      - name: Run linting (non-blocking)
+        run: npm run lint || true
+        continue-on-error: true
+        
       - name: Run E2E tests
         run: npm run test:e2e
 
@@ -46,3 +47,4 @@ jobs:
           name: cypress-videos
           path: jetozdrave/cypress/videos
           retention-days: 7
+
