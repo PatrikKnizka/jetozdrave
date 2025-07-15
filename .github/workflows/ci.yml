@@ -2,9 +2,11 @@ name: CI Tests
 
 on:
   push:
-    branches: ["*"]
+    branches: 
+      - dev
   pull_request:
-    branches: ["*"]
+    branches: 
+      - main
 
 jobs:
   test:
@@ -28,7 +30,7 @@ jobs:
       - name: Run linting (non-blocking)
         run: npm run lint || true
         continue-on-error: true
-        
+
       - name: Run E2E tests
         run: npm run test:e2e
 
