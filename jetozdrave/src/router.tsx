@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import TableInput from "./pages/TableInput";
 import WeightInput from "./pages/WeightInput";
 import Result from "./pages/Result";
+import BuildInfo from "./components/BuildInfo";
 
 const pageVariants = {
     initial: { opacity: 0, x: 100 },
@@ -26,6 +27,7 @@ function AnimatedTableInput() {
             transition={pageTransition}
         >
             <TableInput />
+            <BuildInfo />
         </motion.div>
     );
 }
@@ -40,6 +42,7 @@ function AnimatedWeightInput() {
             transition={pageTransition}
         >
             <WeightInput />
+            <BuildInfo />
         </motion.div>
     );
 }
@@ -54,6 +57,7 @@ function AnimatedResult() {
             transition={pageTransition}
         >
             <Result />
+            <BuildInfo />
         </motion.div>
     );
 }
