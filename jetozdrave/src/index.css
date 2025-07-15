@@ -1,0 +1,11 @@
+#root {
+    color: #333;
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    color: #343a40;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
