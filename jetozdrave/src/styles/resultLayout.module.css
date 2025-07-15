@@ -1,0 +1,61 @@
+.resultContainer {
+    gap: 20px;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.resultLink {
+    color: #28a745;
+    font-weight: bold;
+    ;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.resultItem {
+    width: 40%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Food Quality modificators */
+.excellent {
+    color: white;
+    background-color: #22c55e;
+    border: 2px solid #16a34a;
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.good {
+    color: white;
+    background-color: #16a34a;
+    border: 2px solid #15803d;
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.3);
+}
+
+.moderate {
+    color: black;
+    background-color: #fbbf24;
+    border: 2px solid #f59e0b;
+    box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+}
+
+.poor {
+    color: white;
+    background-color: #f97316;
+    border: 2px solid #ea580c;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+}
+
+.bad {
+    color: white;
+    background-color: #dc2626;
+    border: 2px solid #b91c1c;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
