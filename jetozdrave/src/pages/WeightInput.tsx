@@ -4,11 +4,18 @@ import { useFoodStore } from "../store/useFoodStore";
 import style from "./../styles/formLayout.module.css";
 
 function WeightInput() {
-    const setWeight = useFoodStore((s) => s.setWeight);
     const navigate = useNavigate();
     const [w, setW] = useState("");
+    const [error, setError] = useState("");
+    const setWeight = useFoodStore((s) => s.setWeight);
 
     const handleSubmit = () => {
+        if (!w) {
+            setError("Please enter a weight.");
+            return;
+        } else {
+            setError("");
+        }
         setWeight(parseFloat(w));
         console.log("Weight submitted:", w);
         navigate("/result");
@@ -17,6 +24,7 @@ function WeightInput() {
     return (
         <div className={style.productDetailContainer}>
             <h2 className={style.productDetailHeading}>Enter Product Weight</h2>
+            <p className={style.error}>{error}</p>
             <input
                 value={w}
                 type="number"

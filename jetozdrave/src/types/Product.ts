@@ -1,9 +1,9 @@
 export type Product = {
-  kcal: number
-  fat: number
+  kcals: number
+  fats: number
   carbs: number
   sugars: number
-  fiber: number
-  protein: number
+  fibers: number
+  proteins: number
   weight: number | null
 }

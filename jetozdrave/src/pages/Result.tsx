@@ -47,6 +47,13 @@ const getColorClass = (type: string, value: number): string => {
             if (value >= 2) return style.poor;
             return style.bad;
 
+        case "kcalPerProtein":
+            if (value <= 10) return style.excellent;
+            if (value <= 15) return style.good;
+            if (value <= 20) return style.moderate;
+            if (value <= 25) return style.poor;
+            return style.bad;
+
         default:
             return "";
     }
@@ -77,12 +84,13 @@ function Result() {
     }
 
     const factor = product.weight / 100;
-    const fat = product.fat * factor;
-    const kcal = product.kcal * factor;
+    const fat = product.fats * factor;
+    const kcal = product.kcals * factor;
     const carbs = product.carbs * factor;
-    const fiber = product.fiber * factor;
+    const fibers = product.fibers * factor;
     const sugars = product.sugars * factor;
-    const protein = product.protein * factor;
+    const proteins = product.proteins * factor;
+    const kcalPerProtein = kcal / proteins;
 
     return (
         <div className={style.resultContainer}>
@@ -114,18 +122,26 @@ function Result() {
             <p
                 className={`${style.resultItem} ${getColorClass(
                     "fiber",
-                    fiber
+                    fibers
                 )}`}
             >
-                Fiber: {fiber.toFixed(1)} g
+                Fiber: {fibers.toFixed(1)} g
             </p>
             <p
                 className={`${style.resultItem} ${getColorClass(
                     "protein",
-                    protein
+                    proteins
                 )}`}
             >
-                Proteins: {protein.toFixed(1)} g
+                Proteins: {proteins.toFixed(1)} g
+            </p>
+            <p
+                className={`${style.resultItem} ${getColorClass(
+                    "kcalPerProtein",
+                    kcalPerProtein
+                )}`}
+            >
+                kcal per protein index: {kcalPerProtein.toFixed(1)}
             </p>
         </div>
     );

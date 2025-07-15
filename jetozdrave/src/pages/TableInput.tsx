@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import style from "./../styles/formLayout.module.css";
 import { useFoodStore } from "../store/useFoodStore";
+import style from "./../styles/formLayout.module.css";
 
 function TableInput() {
-    const setProduct = useFoodStore((s) => s.setProduct);
     const navigate = useNavigate();
+    const [error, setError] = useState("");
+    const setProduct = useFoodStore((s) => s.setProduct);
 
     const [form, setForm] = useState({
-        kcal: "",
-        fat: "",
+        kcals: "",
+        fats: "",
         carbs: "",
         sugars: "",
-        fiber: "",
-        protein: "",
+        fibers: "",
+        proteins: "",
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,14 +22,23 @@ function TableInput() {
     };
 
     const handleSubmit = () => {
-        const { kcal, fat, carbs, sugars, fiber, protein } = form;
+        const { kcals, fats, carbs, sugars, fibers, proteins } = form;
+        console.log("Form data:", form);
+
+        if (!kcals || !fats || !carbs || !sugars || !fibers || !proteins) {
+            setError("Please fill in all fields.");
+            return;
+        } else {
+            setError("");
+        }
+
         setProduct({
-            kcal: parseFloat(kcal),
-            fat: parseFloat(fat),
+            kcals: parseFloat(kcals),
+            fats: parseFloat(fats),
             carbs: parseFloat(carbs),
             sugars: parseFloat(sugars),
-            fiber: parseFloat(fiber),
-            protein: parseFloat(protein),
+            fibers: parseFloat(fibers),
+            proteins: parseFloat(proteins),
         });
         console.log("Form submitted:", form);
         navigate("/weight");
@@ -39,15 +49,16 @@ function TableInput() {
             <h2 className={style.productDetailHeading}>
                 Enter Product Details
             </h2>
+            <p className={style.error}>{error}</p>
             <input
                 className={style.productDetailInput}
-                name="kcal"
+                name="kcals"
                 placeholder="Kalórie, kcals / 100g"
                 onChange={handleChange}
             />
             <input
                 className={style.productDetailInput}
-                name="fat"
+                name="fats"
                 placeholder="Tuky, Fats / 100g"
                 onChange={handleChange}
             />
@@ -64,13 +75,13 @@ function TableInput() {
                 onChange={handleChange}
             />
             <input
-                className={style.productDetailInput}
                 name="fibers"
-                placeholder="Vlákniny, Fibers / 100g"
                 onChange={handleChange}
+                placeholder="Vlákniny, Fibers / 100g"
+                className={style.productDetailInput}
             />
             <input
-                name="protein"
+                name="proteins"
                 onChange={handleChange}
                 placeholder="Bielkoviny, Protein / 100g"
                 className={style.productDetailInput}
