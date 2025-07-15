@@ -24,7 +24,7 @@ function WeightInput() {
     return (
         <div className={style.productDetailContainer}>
             <h2 className={style.productDetailHeading}>Enter Product Weight</h2>
-            <p className={style.error}>{error}</p>
+            {error && <p className={style.error}>{error}</p>}
             <input
                 value={w}
                 type="number"
