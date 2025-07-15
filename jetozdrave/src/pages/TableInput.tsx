@@ -49,39 +49,45 @@ function TableInput() {
             <h2 className={style.productDetailHeading}>
                 Enter Product Details
             </h2>
-            <p className={style.error}>{error}</p>
+            {error && <p className={style.error}>{error}</p>}
             <input
                 className={style.productDetailInput}
                 name="kcals"
+                value={form.kcals}
                 placeholder="Kalórie, kcals / 100g"
                 onChange={handleChange}
             />
             <input
                 className={style.productDetailInput}
                 name="fats"
+                value={form.fats}
                 placeholder="Tuky, Fats / 100g"
                 onChange={handleChange}
             />
             <input
                 className={style.productDetailInput}
                 name="carbs"
+                value={form.carbs}
                 placeholder="Sacharidy, Carbs / 100g"
                 onChange={handleChange}
             />
             <input
                 className={style.productDetailInput}
                 name="sugars"
+                value={form.sugars}
                 placeholder="Cukry, Sugars / 100g"
                 onChange={handleChange}
             />
             <input
                 name="fibers"
+                value={form.fibers}
                 onChange={handleChange}
                 placeholder="Vlákniny, Fibers / 100g"
                 className={style.productDetailInput}
             />
             <input
                 name="proteins"
+                value={form.proteins}
                 onChange={handleChange}
                 placeholder="Bielkoviny, Protein / 100g"
                 className={style.productDetailInput}
