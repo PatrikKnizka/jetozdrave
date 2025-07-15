@@ -7,13 +7,13 @@ import Result from "./pages/Result";
 const pageVariants = {
     initial: { opacity: 0, x: 100 },
     animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -100 }
+    exit: { opacity: 0, x: -100 },
 };
 
 const pageTransition = {
     duration: 0.3,
     type: "tween" as const,
-    ease: "easeInOut" as const
+    ease: "easeInOut" as const,
 };
 
 function AnimatedTableInput() {
@@ -58,23 +58,28 @@ function AnimatedResult() {
     );
 }
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+    [
+        {
+            path: "/",
+            element: <Navigate to="/table" replace />,
+        },
+        {
+            path: "/table",
+            element: <AnimatedTableInput />,
+        },
+        {
+            path: "/weight",
+            element: <AnimatedWeightInput />,
+        },
+        {
+            path: "/result",
+            element: <AnimatedResult />,
+        },
+    ],
     {
-        path: "/",
-        element: <Navigate to="/table" replace />,
-    },
-    {
-        path: "/table",
-        element: <AnimatedTableInput />,
-    },
-    {
-        path: "/weight",
-        element: <AnimatedWeightInput />,
-    },
-    {
-        path: "/result",
-        element: <AnimatedResult />,
-    },
-]);
+        basename: "/jetozdrave/",
+    }
+);
 
 export default router;
