@@ -90,7 +90,7 @@ function Result() {
     const fibers = product.fibers * factor;
     const sugars = product.sugars * factor;
     const proteins = product.proteins * factor;
-    const kcalPerProtein = proteins === 0 ? "N/A" : (kcal / proteins).toFixed(1);
+    const kcalPerProtein = kcal / proteins;
 
     return (
         <div className={style.resultContainer}>
