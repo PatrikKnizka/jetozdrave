@@ -9,6 +9,12 @@ function WeightInput() {
     const [error, setError] = useState("");
     const setWeight = useFoodStore((s) => s.setWeight);
 
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === "Enter") {
+            handleSubmit();
+        }
+    };
+
     const handleSubmit = () => {
         if (!w) {
             setError("Please enter a weight.");
@@ -31,6 +37,7 @@ function WeightInput() {
                 placeholder="Weight in grams"
                 className={style.productDetailInput}
                 onChange={(e) => setW(e.target.value)}
+                onKeyDown={handleKeyDown}
             />
             <button
                 className={style.productDetailSubmitButton}
