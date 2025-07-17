@@ -34,14 +34,15 @@ function WeightInput() {
             <input
                 value={w}
                 type="number"
+                autoComplete="off"
+                onKeyDown={handleKeyDown}
                 placeholder="Weight in grams"
                 className={style.productDetailInput}
                 onChange={(e) => setW(e.target.value)}
-                onKeyDown={handleKeyDown}
             />
             <button
-                className={style.productDetailSubmitButton}
                 onClick={handleSubmit}
+                className={style.productDetailSubmitButton}
             >
                 Show Result
             </button>

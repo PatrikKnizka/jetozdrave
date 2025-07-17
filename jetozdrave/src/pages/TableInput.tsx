@@ -61,76 +61,82 @@ function TableInput() {
                 </p>
             )}
             <input
-                className={style.productDetailInput}
+                min="0"
+                step="0.1"
                 name="kcals"
                 type="number"
-                step="0.1"
-                min="0"
                 tabIndex={1}
                 value={form.kcals}
-                placeholder="Kalórie, kcals / 100g"
+                autoComplete="off"
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
+                placeholder="Kalórie, kcals / 100g"
+                className={style.productDetailInput}
             />
             <input
-                className={style.productDetailInput}
-                name="fats"
-                type="number"
-                step="0.1"
                 min="0"
+                step="0.1"
+                type="number"
+                name="fats"
                 tabIndex={2}
                 value={form.fats}
-                placeholder="Tuky, Fats / 100g"
+                autoComplete="off"
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
+                placeholder="Tuky, Fats / 100g"
+                className={style.productDetailInput}
             />
             <input
-                className={style.productDetailInput}
+                min="0"
+                step="0.1"
+                tabIndex={3}
                 name="carbs"
                 type="number"
-                step="0.1"
-                min="0"
-                tabIndex={3}
                 value={form.carbs}
-                placeholder="Sacharidy, Carbs / 100g"
+                autoComplete="off"
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
+                className={style.productDetailInput}
+                placeholder="Sacharidy, Carbs / 100g"
             />
             <input
-                className={style.productDetailInput}
+                min="0"
+                step="0.1"
+                tabIndex={4}
                 name="sugars"
                 type="number"
-                step="0.1"
-                min="0"
-                tabIndex={4}
+                autoComplete="off"
                 value={form.sugars}
-                placeholder="Cukry, Sugars / 100g"
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
-            />
+                placeholder="Cukry, Sugars / 100g"
+                className={style.productDetailInput}
+                />
             <input
+                min="0"
+                step="0.1"
+                tabIndex={5}
                 name="fibers"
                 type="number"
-                step="0.1"
-                min="0"
-                tabIndex={5}
+                autoComplete="off"
                 value={form.fibers}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
-                placeholder="Vlákniny, Fibers / 100g"
                 className={style.productDetailInput}
+                placeholder="Vlákniny, Fibers / 100g"
             />
             <input
-                name="proteins"
-                type="number"
-                step="0.1"
                 min="0"
+                step="0.1"
                 tabIndex={6}
+                type="number"
+                name="proteins"
+                autoComplete="off"
                 value={form.proteins}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
-                placeholder="Bielkoviny, Protein / 100g"
                 className={style.productDetailInput}
+                placeholder="Bielkoviny, Protein / 100g"
             />
             <button
                 className={style.productDetailSubmitButton}
